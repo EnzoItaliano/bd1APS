@@ -1,4 +1,13 @@
-create database receitasBD;
+CREATE USER 'bolo.admin'@'localhost' IDENTIFIED BY 'bolo'; 
+ALTER USER 'bolo.admin'@'localhost' IDENTIFIED WITH mysql_native_password BY 'bolo'; 
+GRANT ALL PRIVILEGES ON receitasBD.* TO 'bolo.admin'@'localhost';
+
+DROP DATABASE IF EXISTS receitasBD;
+CREATE DATABASE IF NOT EXISTS receitasBD;
+
+ALTER USER 'bolo.admin'@'localhost' IDENTIFIED WITH mysql_native_password BY 'bolo'; 
+GRANT ALL PRIVILEGES ON receitasBD.* TO 'bolo.admin'@'localhost';
+
 use receitasBD;
 
 create table Usuario (
