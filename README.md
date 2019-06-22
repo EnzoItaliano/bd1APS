@@ -7,7 +7,7 @@ npm install express express-session body-parser mysql ejs req-flash --save
 ```
 Crie o banco de dados utilizando o arquivo .sql
 
-Para executar o site
+Para executar o site:
 ```
 node index.js
 ```
