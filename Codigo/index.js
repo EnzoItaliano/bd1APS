@@ -11,8 +11,8 @@ var routes = require('./routes');
 // conexão com o banco de dados
 const db = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
-    password: '',
+    user: 'bolo.admin',
+    password: 'bolo',
     database: 'receitasBD'
 });
 
