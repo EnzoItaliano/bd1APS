@@ -5,7 +5,7 @@ Banco de dados relacional de um site de receitas
 ```
 npm install express express-session body-parser mysql ejs req-flash --save
 ```
-Crie o banco de dados utilizando o arquivo .sql
+Crie o banco de dados utilizando o arquivo receitasBD.sql
 
 Para executar o site utilize o comando abaixo dentro da pasta *Codigo*
 ```
