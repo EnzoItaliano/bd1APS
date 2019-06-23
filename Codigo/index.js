@@ -7,6 +7,8 @@ const app = express();
 const port = 8000; //porta padrão
 var session = require('express-session');
 var routes = require('./routes');
+var user = require('./routes/user');
+var http = require('http');
 
 // conexão com o banco de dados
 const db = mysql.createConnection({
@@ -37,6 +39,10 @@ app.set('views', __dirname + '/views'); // set express to look in this folder to
 app.set('view engine', 'ejs'); // configure template engine
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', routes.index);//call for main index page
+app.get('/signup', user.signup);//call for signup page
+app.post('/signup', user.signup);//call for signup post 
+
 app.listen(port)
