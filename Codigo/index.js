@@ -43,7 +43,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', routes.index);//call for main index page
 app.get('/signup', user.signup);//call for signup page
-app.post('/signup', user.signup);//call for signup post 
+app.post('/signup', user.signup);//call for signup post
+app.get('/login', user.login);//call for login page
+app.post('/login', user.login);//call for login post
+app.get('/home/dashboard', user.dashboard);//call for dashboard page after login
 
 app.listen(port)
 

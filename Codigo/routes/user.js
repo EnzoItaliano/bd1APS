@@ -3,9 +3,10 @@ const messages = {
    message_sucesso: ''
 }
 
+//signup
 exports.signup = function (req, res) {
    messages.message_erro = '';
-   messages.message_erro = '';
+   messages.message_sucesso = '';
 
    if (req.method == "POST") {
       var post = req.body;
@@ -25,4 +26,55 @@ exports.signup = function (req, res) {
    } else {
       res.render('signup');
    }
+};
+
+//login
+exports.login = function(req, res){
+   messages.message_erro = '';
+   messages.message_sucesso = '';
+
+   var sess = req.session; 
+
+   if(req.method == "POST"){
+      var post  = req.body;
+      var e_mail= post.email;
+      var pass= post.senha;
+     
+      var sql="SELECT idUser, nome FROM Usuario WHERE email ='"+e_mail+"' and senha = '"+pass+"'";                           
+      db.query(sql, function(err, results){      
+         if(results.length){
+            req.session.userId = results[0].id;
+            req.session.user = results[0];
+            console.log(results[0].id);
+            res.redirect('/home/dashboard');
+         }
+         else{
+            message = 'Wrong Credentials.';
+            res.render('login.ejs',{message: messages});
+         }
+         console.log(err);
+                 
+      });
+   } else {
+      res.render('login.ejs',{message: messages});
+   }
+           
+};
+
+//dashboard
+exports.dashboard = function(req, res, next){
+           
+   var user =  req.session.user,
+   userId = req.session.userId;
+   console.log('ddd='+userId);
+   if(userId == null){
+      res.redirect("/login");
+      return;
+   }
+
+   var sql="SELECT * FROM `users` WHERE `id`='"+userId+"'";
+
+   db.query(sql, function(err, results){
+      res.render('dashboard.ejs', {user:user});    
+   });       
 };
