@@ -46,3 +46,15 @@ app.get('/signup', user.signup);//call for signup page
 app.post('/signup', user.signup);//call for signup post 
 
 app.listen(port)
+
+app.get('/signup', (req, res) => {
+  res.render('signup.ejs')
+})
+
+app.get('/login', (req, res) => {
+  res.render('login.ejs')
+})
+
+app.get('/index', (req, res) => {
+  res.render('index.ejs')
+})
