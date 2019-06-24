@@ -42,7 +42,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', routes.index);//call for main index page
-app.get('/author', routes.author);//call for signup page
+// app.get('/author', routes.author);//call for signup page
 // app.post('/signup', user.signup);//call for signup post
 // app.get('/login', user.login);//call for login page
 // app.post('/login', user.login);//call for login post
