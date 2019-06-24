@@ -12,6 +12,7 @@ use receitasBD;
 
 create table Autor (
 	idAuthor int(5) not null AUTO_INCREMENT,
+    userName char(100) not null,
     pass char(50) not null,
     name_ char(100) not null,
     age int,
