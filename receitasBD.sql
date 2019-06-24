@@ -13,7 +13,7 @@ use receitasBD;
 create table Autor (
 	idAuthor int(5) not null AUTO_INCREMENT,
     pass char(50) not null,
-    nome char(100) not null,
+    name_ char(100) not null,
     age int,
     hability enum('Iniciante', 'Intermediário', 'Avançado'),
     primary key (idUser)
@@ -38,5 +38,6 @@ create table Receita (
 
 create table Restaurant(
 	idRestaurant int(5) not null AUTO_INCREMENT,
-    nome char(100)
+    name_ char(100),
+    adress char(100)
 );
