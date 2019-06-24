@@ -42,18 +42,18 @@ exports.login = function(req, res){
      
       var sql="SELECT idUser, nome FROM Usuario WHERE email ='"+e_mail+"' and senha = '"+pass+"'";                           
       db.query(sql, function(err, results){      
-         if(results.length){
-            req.session.userId = results[0].id;
-            req.session.user = results[0];
-            console.log(results[0].id);
-            res.redirect('/home/dashboard');
+         if(!err){
+            if(results.length){
+               req.session.userId = results[0].id;
+               req.session.user = results[0];
+               console.log(results[0].id);
+               res.redirect('/home/dashboard');
+            }
+            else{
+               message = 'Wrong Credentials.';
+               res.render('login.ejs',{message: messages});
+            }
          }
-         else{
-            message = 'Wrong Credentials.';
-            res.render('login.ejs',{message: messages});
-         }
-         console.log(err);
-                 
       });
    } else {
       res.render('login.ejs',{message: messages});
