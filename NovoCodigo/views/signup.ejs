@@ -1,0 +1,39 @@
+<%- include header %>
+
+    <div class="login-clean" style="background-color: rgba(241,247,252,0);">
+        <form action="/signup" method="POST">
+            <h2 class="sr-only">Signup Form</h2>
+            <div class="illustration"><i class="icon ion-ios-nutrition" style="color: rgb(49,109,73);"></i></div>
+            <div class="form-group">
+                <label class="form-group">Id</label>
+                <input class="form-control" type="text" name="id">
+            </div>
+            <div class="form-group">
+                <label class="form-group">Nome</label>
+                <input class="form-control" type="text" name="nome">
+            </div>
+            <div class="form-group">
+                <label class="form-group">idade</label>
+                <input class="form-control" type="text" name="idade">
+            </div>
+            <div class="form-group">
+                <label class="form-group">Nível de habilidade</label>
+                <input class="form-control" type="radio" name="habilidade"> Iniciante <br>
+                <input class="form-control" type="radio" name="habilidade"> Intermediário <br>
+                <input class="form-control" type="radio" name="habilidade"> Avançado
+            </div>
+            <div class="form-group"><button class="btn btn-primary btn-block" type="submit"
+                    style="background-color: rgb(49,109,73);">Registrar</button></div>
+        </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
