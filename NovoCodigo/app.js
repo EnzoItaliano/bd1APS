@@ -26,13 +26,8 @@ db.connect((err) => {
 });
 global.db = db;
 
-//gerenciamento de sessão
-// app.use(session({
-//     secret: 'keyboard cat',
-//     resave: false,
-//     saveUninitialized: true,
-//     cookie: { maxAge: 60000 }
-// }))
+const { adicionarAutor } = require('./routes/author');
+
 
 app.set('port', process.env.port || port); // set express to use this port
 app.set('views', __dirname + '/views'); // set express to look in this folder to render our view
@@ -42,11 +37,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', routes.index);//call for main index page
-// app.get('/author', routes.author);//call for signup page
-// app.post('/signup', user.signup);//call for signup post
-// app.get('/login', user.login);//call for login page
-// app.post('/login', user.login);//call for login post
-// app.get('/home/dashboard', user.dashboard);//call for dashboard page after login
+app.post('/cadastroAutor/author', adicionarAutor);
 
 app.listen(port)
 
