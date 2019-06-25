@@ -37,7 +37,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', routes.index);//call for main index page
-app.post('/cadastroAutor/author', adicionarAutor);
+app.post('/cadastroAutor', adicionarAutor);
 
 app.listen(port)
 

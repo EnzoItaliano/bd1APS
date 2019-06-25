@@ -1,5 +1,6 @@
 module.exports = {
     adicionarAutor: (req, res) => {
+        message = '';
         var nome = req.body.nome;
         var idade = req.body.idade;
         var habilidade = req.body.habilidade;
