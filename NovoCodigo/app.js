@@ -50,8 +50,12 @@ app.get('/', routes.index);//call for main index page
 
 app.listen(port)
 
-app.get('/login', (req, res) => {
-    res.render('login.ejs')
+app.get('/author', (req, res) => {
+    res.render('autores.ejs')
+})
+
+app.get('/receitas', (req, res) => {
+    res.render('receitas.ejs')
 })
 
 app.get('/index', (req, res) => {
