@@ -5,7 +5,7 @@ module.exports = {
         var idade = req.body.idade;
         var habilidade = req.body.habilidade;
 
-        var sql = "INSERT INTO Autor(nome,idade,habilidade) VALUES ('" + nome + "','" + idade + "','" + habilidade + "')";
+        var sql = "INSERT INTO Autor(name_,age,hability) VALUES ('" + nome + "','" + idade + "','" + habilidade + "')";
 
         var query = db.query(sql, function (err, result) {
 
