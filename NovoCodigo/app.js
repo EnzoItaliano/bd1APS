@@ -54,8 +54,8 @@ app.get('/author', (req, res) => {
     res.render('autores.ejs')
 })
 
-app.get('/signup', (req, res) => {
-    res.render('signup.ejs')
+app.get('/cadastroAutor', (req, res) => {
+    res.render('cadastroAutor.ejs')
 })
 
 app.get('/receitas', (req, res) => {
