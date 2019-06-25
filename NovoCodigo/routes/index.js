@@ -1,4 +1,4 @@
 exports.index = function (req, res) {
-    res.render('autores.ejs', {
+    res.render('index.ejs', {
     });
 };
