@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', routes.index);//call for main index page
 app.post('/cadastroAutor', adicionarAutor);
-app.get('/autores', buscarAutor);
+// app.get('/autores', buscarAutor);
 
 app.listen(port)
 
