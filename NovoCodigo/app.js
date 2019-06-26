@@ -29,6 +29,7 @@ global.db = db;
 const { adicionarAutor } = require('./routes/author');
 const { buscarAutor } = require('./routes/author');
 
+
 app.set('port', process.env.port || port); // set express to use this port
 app.set('views', __dirname + '/views'); // set express to look in this folder to render our view
 app.set('view engine', 'ejs'); // configure template engine
@@ -38,13 +39,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', routes.index);//call for main index page
 app.post('/cadastroAutor', adicionarAutor);
-app.post('/autores', buscarAutor);
+app.get('/autores', buscarAutor);
 
 app.listen(port)
 
-app.get('/author', (req, res) => {
-    res.render('autores.ejs')
-})
+app.get('/author', buscarAutor);
 
 app.get('/cadastroAutor', (req, res) => {
     res.render('cadastroAutor.ejs')
