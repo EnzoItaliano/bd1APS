@@ -2,7 +2,7 @@
 
 <div>
     &nbsp&nbsp<h1 style="color: #114d29">&nbspAutores</h1>
-    <form action="/serchAuthor" method="POST" style="margin-top: 30px; margin-left: 20px; margin-right: 20px">
+    <form action="/autores" method="POST" style="margin-top: 30px; margin-left: 20px; margin-right: 20px">
         <div style="text-align: right;">
             <input style="border-radius: 5px; width: 100%" type="text" name="searchAuthor">
             <button style="
@@ -23,49 +23,60 @@
                 text-align: center;
             ">Adicionar</button></a>
     </div>
-        <table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Idade</th>
-                    <th>Experiência</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><i></i></td>
-                                
-                                <td>
-
-                                </td>
-                                <td>
-
-                                </td>
-                                <td>
-
-                                </td>
-                                <td>
-                                    <button style="
-                                    background-color: #316d49;
-                                    border: none;
-                                    color: white;
-                                    padding: 5px 13px;
-                                    text-align: center;>Editar</button>
-                                </td>
-                                <td>
-                                    <button style="
-                                    background-color: #316d49;
-                                    border: none;
-                                    color: white;
-                                    padding: 5px 13px;
-                                    text-align: center;>Remover</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+    <table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Experiência</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <%- if(resultados.length){
+                for(var i = 0; i < resultados.length; i++) { -%>
+            <tr>
+                <th scope="row"><%= (i+1) %>
+                <td>
+                    <%= resultados[i].idAuthor%>
+                </td>
+                <td>
+                    <%= resultados[i].name%>
+                </td>
+                <td>
+                    <%= resultados[i].age%>
+                </td>
+                <td>
+                    <%= resultados[i].hability%>
+                </td>
+                <td>
+                    <button style="
+                        background-color: #316d49;
+                        border: none;
+                        color: white;
+                        padding: 5px 13px;
+                        text-align: center;">Editar</button>
+                </td>
+                <td>
+                    <button style="
+                        background-color: #316d49;
+                        border: none;
+                        color: white;
+                        padding: 5px 13px;
+                        text-align: center;">Remover</button>
+                </td>
+            </tr>
+            <%- }
+           
+            }else{ -%>
+            <tr>
+                <td colspan="3">No user</td>
+            </tr>
+            <%- } -%>
+        </tbody>
+        </table>
 </div>
 </body>
 

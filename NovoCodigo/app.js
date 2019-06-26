@@ -27,7 +27,7 @@ db.connect((err) => {
 global.db = db;
 
 const { adicionarAutor } = require('./routes/author');
-
+const { buscarAutor } = require('./routes/author');
 
 app.set('port', process.env.port || port); // set express to use this port
 app.set('views', __dirname + '/views'); // set express to look in this folder to render our view
@@ -38,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', routes.index);//call for main index page
 app.post('/cadastroAutor', adicionarAutor);
+app.post('/autores', buscarAutor);
 
 app.listen(port)
 
