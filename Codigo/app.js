@@ -26,8 +26,10 @@ db.connect((err) => {
 });
 global.db = db;
 
-const { adicionarAutor, buscarAutor, removerAutor } = require('./routes/author');
+
+const { adicionarAutor, buscarAutor, removerAutor, detalharAutor, editAutor } = require('./routes/author');
 // const { buscarAutor } = require('./routes/author');
+
 
 
 app.set('port', process.env.port || port); // set express to use this port
@@ -45,6 +47,9 @@ app.get('/author/:id', removerAutor);
 app.listen(port)
 
 app.get('/author/', buscarAutor);
+
+app.get('/author/editar/:id', detalharAutor);
+app.post('/author/editar', editAutor);
 
 app.get('/cadastroAutor', (req, res) => {
     res.render('cadastroAutor.ejs')

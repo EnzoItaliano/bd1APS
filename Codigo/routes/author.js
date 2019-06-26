@@ -29,6 +29,46 @@ module.exports = {
         });
     },
 
+
+
+    detalharAutor: (req, res) => {
+        /*
+            Para editar as informaçoes do Cliente
+            é necessario buscar primeiro as informaçoes no banco
+            e depois retornar para a pagina
+        */
+        var resultados = [];
+        var resultado = null;
+        console.log("Executar açao de editar cliente idAuthor=", req.params.id);
+        let id = req.params.id;
+
+        query = "SELECT * FROM Autor WHERE idAuthor='" + id + "'";
+        db.query(query, function (erro, result) {
+            resultados = result;
+            res.render('editAutor.ejs', {resultados: resultados});
+        });
+    },
+
+    editAutor: (req, res) => {
+        var id = req.body.id;
+        var nome = req.body.nome;
+        var idade = req.body.idade;
+        var habilidade = req.body.habilidade;
+
+        //set data
+        var data = {
+            name_: nome,
+            age: idade,
+            hability: habilidade
+        };
+
+        var insert = "UPDATE Autor set ? WHERE idAuthor = ? ";
+        db.query(insert, [data, id], function (erro, result) {
+            resultados = result;
+            res.render('autores', {resultados: resultados});
+        });
+    },
+
     removerAutor: (req, res) => {
         var id = req.params.id;
         var sql = "DELETE FROM Autor  WHERE idAuthor = ?";
