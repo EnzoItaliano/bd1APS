@@ -65,8 +65,8 @@ module.exports = {
         };
 
         var insert = "UPDATE Autor set ? WHERE idAuthor = ? ";
-        db.query(insert, [data, id], function (erro, resultado) {
-            
+        db.query(insert, [data, id], function (erro, result) {
+            resultados = result;
             res.render('autores', {resultados: resultados});
         });
     },
