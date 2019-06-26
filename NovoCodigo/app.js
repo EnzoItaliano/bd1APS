@@ -26,11 +26,9 @@ db.connect((err) => {
 });
 global.db = db;
 
-const { adicionarAutor } = require('./routes/author');
-const { buscarAutor } = require('./routes/author');
-const { detalharAutor } = require('./routes/author');
-const { editAutor } = require('./routes/author');
 
+const { adicionarAutor, buscarAutor, removerAutor, detalharAutor, editAutor } = require('./routes/author');
+// const { buscarAutor } = require('./routes/author');
 
 
 
@@ -44,6 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', routes.index);//call for main index page
 app.post('/cadastroAutor', adicionarAutor);
 // app.get('/autores', buscarAutor);
+app.get('/author/:id', removerAutor);
 
 app.listen(port)
 
