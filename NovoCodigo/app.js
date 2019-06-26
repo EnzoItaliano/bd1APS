@@ -43,7 +43,7 @@ app.get('/autores', buscarAutor);
 
 app.listen(port)
 
-app.get('/author', buscarAutor);
+app.get('/author/', buscarAutor);
 
 app.get('/cadastroAutor', (req, res) => {
     res.render('cadastroAutor.ejs')
