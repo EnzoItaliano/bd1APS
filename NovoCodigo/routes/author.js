@@ -20,8 +20,8 @@ module.exports = {
         var resultados = [];
         var resultado = null;
 
-        var select_cliente = "SELECT * FROM Autor";
-        db.query(select_cliente, function(err, result) {
+        var sql= "SELECT * FROM Autor";
+        db.query(sql, function(err, result) {
             resultados = result;
             console.log(result);
             res.render('autores', {resultados: resultados});
