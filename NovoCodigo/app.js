@@ -28,6 +28,10 @@ global.db = db;
 
 const { adicionarAutor } = require('./routes/author');
 const { buscarAutor } = require('./routes/author');
+const { detalharAutor } = require('./routes/author');
+const { editAutor } = require('./routes/author');
+
+
 
 
 app.set('port', process.env.port || port); // set express to use this port
@@ -44,6 +48,9 @@ app.post('/cadastroAutor', adicionarAutor);
 app.listen(port)
 
 app.get('/author/', buscarAutor);
+
+app.get('/author/editar/:id', detalharAutor);
+app.post('/author/editar', editAutor);
 
 app.get('/cadastroAutor', (req, res) => {
     res.render('cadastroAutor.ejs')
