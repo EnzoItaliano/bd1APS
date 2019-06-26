@@ -64,7 +64,7 @@ module.exports = {
             hability: habilidade
         };
 
-        var insert = "UPDATE Autor set ? WHERE id = ? ";
+        var insert = "UPDATE Autor set ? WHERE idAuthor = ? ";
         db.query(insert, [data, id], function (erro, resultado) {
             
             res.render('autores', {resultados: resultados});
