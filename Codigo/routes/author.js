@@ -55,6 +55,7 @@ module.exports = {
         var idade = req.body.idade;
         var habilidade = req.body.habilidade;
 
+        var resultados = [];
         //set data
         var data = {
             name_: nome,
@@ -65,7 +66,14 @@ module.exports = {
         var insert = "UPDATE Autor set ? WHERE idAuthor = ? ";
         db.query(insert, [data, id], function (erro, result) {
             resultados = result;
-            res.render('autores', {resultados: resultados});
+            // res.render('autores', {resultados: resultados});
+        });
+
+        var sql = "SELECT * FROM Autor";
+        db.query(sql, function (err, result) {
+            resultados = result;
+            console.log(result);
+            res.render('autores', { resultados: resultados });
         });
     },
 

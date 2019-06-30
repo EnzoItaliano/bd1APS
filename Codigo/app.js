@@ -46,7 +46,7 @@ app.get('/author/:id', removerAutor);
 
 app.listen(port)
 
-app.get('/author/', buscarAutor);
+app.get('/author', buscarAutor);
 
 app.get('/author/editar/:id', detalharAutor);
 app.post('/author/editar', editAutor);
