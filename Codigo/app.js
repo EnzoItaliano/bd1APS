@@ -41,24 +41,22 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', routes.index);//call for main index page
 app.post('/cadastroAutor', adicionarAutor);
-// app.get('/autores', buscarAutor);
-app.get('/author/:id', removerAutor);
-
-app.listen(port)
-
 app.get('/author', buscarAutor);
-
+app.get('/author/:id', removerAutor);
 app.get('/author/editar/:id', detalharAutor);
 app.post('/author/editar', editAutor);
-
 app.get('/cadastroAutor', (req, res) => {
     res.render('cadastroAutor.ejs')
 })
-
 app.get('/receitas', (req, res) => {
     res.render('receitas.ejs')
 })
-
 app.get('/index', (req, res) => {
     res.render('index.ejs')
 })
+
+app.listen(port)
+
+
+
+
