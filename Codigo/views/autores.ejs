@@ -35,33 +35,33 @@
             </tr>
         </thead>
         <tbody>
-            <% if(resultados) {%>
-            <% resultados.forEach(function(resultado){ %>
+            <% if(autores) {%>
+            <% autores.forEach(function(autor){ %>
             <tr>
                 <td>
-                    <%= resultado.idAuthor %>
+                    <%= autor.idAuthor %>
                 </td>
                 <td>
-                    <%= resultado.name_ %>
+                    <%= autor.name_ %>
                 </td>
                 <td>
-                    <%= resultado.age %>
+                    <%= autor.age %>
                 </td>
                 <td>
-                    <%= resultado.hability %>
+                    <%= autor.hability %>
                 </td>
                 <td>
                     <button style="
                         background-color: #316d49;
                         border: none;
                         padding: 5px 13px;
-                        text-align: center;"><a href="author/editar/:<%=resultado.idAuthor%>" style="color: white">Editar</a></button>
+                        text-align: center;"><a href="author/editar/:<%=autor.idAuthor%>" style="color: white">Editar</a></button>
 
                     <button style="
                         background-color: #316d49;
                         border: none;
                         padding: 5px 13px;
-                        text-align: center;"><a href="author/<%= resultado.idAuthor%>" style="color: white">Remover</a></button>
+                        text-align: center;"><a href="author/<%= autor.idAuthor%>" style="color: white">Remover</a></button>
                 </td>
             </tr>
             <% }); %>
