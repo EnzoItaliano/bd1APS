@@ -1,5 +1,11 @@
-module.exports = {
+const resultados = {
+    autores: [],
+    autor: null,
+}
 
+var idAuthor = '';
+
+module.exports = {
     adicionarAutor: (req, res) => {
         message = '';
         var nome = req.body.nome;
@@ -17,15 +23,13 @@ module.exports = {
 
     buscarAutor: (req, res) => {
         var nome = req.body.searchAuthor;
-        var resultados = [];
-        var resultado = null;
-
 
         var sql= "SELECT * FROM Autor";
         db.query(sql, function(err, result) {
-            resultados = result;
+            resultados.autores = result;
+            resultados.autor = null;
             console.log(result);
-            res.render('autores', { resultados: resultados });
+            res.render('autores', resultados);
         });
     },
 
@@ -33,48 +37,42 @@ module.exports = {
 
     detalharAutor: (req, res) => {
         /*
-            Para editar as informaçoes do Cliente
+            Para editar as informaçoes do Autor
             é necessario buscar primeiro as informaçoes no banco
             e depois retornar para a pagina
         */
-        var resultados = [];
-        var resultado = null;
+        idAuthor = req.params.id;
         console.log("Executar açao de editar cliente idAuthor=", req.params.id);
         let id = req.params.id;
 
         query = "SELECT * FROM Autor WHERE idAuthor='" + id + "'";
         db.query(query, function (erro, result) {
-            resultados = result;
-            res.render('editAutor.ejs', {resultados: resultados});
+            resultados.autor = result[0];
+            res.render('editAutor.ejs', resultados);
         });
     },
 
     editAutor: (req, res) => {
-        var id = req.body.id;
         var nome = req.body.nome;
         var idade = req.body.idade;
         var habilidade = req.body.habilidade;
+        idAuthor = idAuthor.replace(':', '');
 
-        var resultados = [];
-        //set data
-        var data = {
-            name_: nome,
-            age: idade,
-            hability: habilidade
-        };
 
-        var insert = "UPDATE Autor set ? WHERE idAuthor = ? ";
-        db.query(insert, [data, id], function (erro, result) {
-            resultados = result;
-            // res.render('autores', {resultados: resultados});
-        });
+        var insert = "UPDATE Autor set name_='" + nome + "', age='" + idade + "', hability='" + habilidade + "' WHERE idAuthor= ?";
+        console.log(insert);
+        db.query(insert, [idAuthor], function (erro, result) {
 
-        var sql = "SELECT * FROM Autor";
-        db.query(sql, function (err, result) {
-            resultados = result;
+        	if (erro) {
+                console.log("Não foi possivel atualizar o cliente.Erro:" + erro);
+                res.render('autores.ejs', resultados);
+            }
+
+            res.redirect('/author/');
             console.log(result);
-            res.render('autores', { resultados: resultados });
         });
+
+        
     },
 
     removerAutor: (req, res) => {
@@ -86,13 +84,13 @@ module.exports = {
             }
             console.log("Apagando Cliente");
         });
-        var resultados = [];
+
 
         var sql = "SELECT * FROM Autor";
         db.query(sql, function (err, result) {
-            resultados = result;
+            resultados.autores = result;
             console.log(result);
-            res.render('autores', { resultados: resultados });
+            res.render('autores', resultados);
         });
     }
 }
