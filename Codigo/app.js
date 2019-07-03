@@ -56,9 +56,11 @@ app.post('/receitas/editar', editReceita);
 app.get('/cadastroAutor', (req, res) => {
     res.render('cadastroAutor.ejs')
 })
-app.get('/receitas', (req, res) => {
-    res.render('receitas.ejs')
+
+app.get('/cadastroReceita', (req, res) => {
+    res.render('cadastroReceita.ejs')
 })
+
 app.get('/index', (req, res) => {
     res.render('index.ejs')
 })
