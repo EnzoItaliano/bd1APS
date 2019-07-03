@@ -48,18 +48,20 @@ app.get('/author/editar/:id', detalharAutor);
 app.post('/author/editar', editAutor);
 
 app.post('/cadastroReceita', adicionarReceita);
-app.get('/receita', buscarReceita);
-app.get('/receita/:id', removerReceita);
-app.get('/receita/editar/:id', detalharReceita);
-app.get('/receita/ler/:id', lerReceita);
-app.post('/receita/editar', editReceita);
+app.get('/receitas', buscarReceita);
+app.get('/receitas/:id', removerReceita);
+app.get('/receitas/editar/:id', detalharReceita);
+app.get('/receitas/ler/:id', lerReceita);
+app.post('/receitas/editar', editReceita);
 
 app.get('/cadastroAutor', (req, res) => {
     res.render('cadastroAutor.ejs')
 })
-app.get('/receitas', (req, res) => {
-    res.render('receitas.ejs')
+
+app.get('/cadastroReceita', (req, res) => {
+    res.render('cadastroReceita.ejs')
 })
+
 app.get('/index', (req, res) => {
     res.render('index.ejs')
 })
