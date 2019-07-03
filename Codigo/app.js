@@ -28,6 +28,7 @@ global.db = db;
 
 
 const { adicionarAutor, buscarAutor, removerAutor, detalharAutor, editAutor } = require('./routes/author');
+const { adicionarReceita, buscarReceita, removerReceita, detalharReceita, editReceita, lerReceita } = require('./routes/receitas');
 // const { buscarAutor } = require('./routes/author');
 
 
@@ -45,6 +46,14 @@ app.get('/author', buscarAutor);
 app.get('/author/:id', removerAutor);
 app.get('/author/editar/:id', detalharAutor);
 app.post('/author/editar', editAutor);
+
+app.post('/cadastroReceita', adicionarReceita);
+app.get('/receita', buscarReceita);
+app.get('/receita/:id', removerReceita);
+app.get('/receita/editar/:id', detalharReceita);
+app.get('/receita/ler/:id', lerReceita);
+app.post('/receita/editar', editReceita);
+
 app.get('/cadastroAutor', (req, res) => {
     res.render('cadastroAutor.ejs')
 })
