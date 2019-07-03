@@ -1,6 +1,7 @@
 const resultados = {
     receitas: [],
     receita: null,
+    autores: [],
 }
 
 var idReceita = '';
@@ -18,7 +19,16 @@ module.exports = {
         var query = db.query(sql, function (err, result) {
 
             message = "Succesfully! Recipe added.";
-            res.render('cadastroReceita.ejs', { message: message });
+            res.render('detalharAutores.ejs', { message: message });
+        });
+    },
+
+    detalharAutores: (req, res) => {
+
+        query = "SELECT * FROM Autor";
+        db.query(query, function (erro, result) {
+            resultados.autores = result;
+            res.render('adicionarReceita.ejs', resultados);
         });
     },
 
@@ -37,7 +47,7 @@ module.exports = {
 
     lerReceita: (req, res) => {
         
-        idAuthor = req.params.id;
+        idReceita = req.params.id;
         let id = req.params.id;
 
         query = "SELECT * FROM Receita WHERE idRecipe='" + id + "'";
@@ -53,7 +63,7 @@ module.exports = {
             é necessario buscar primeiro as informaçoes no banco
             e depois retornar para a pagina
         */
-        idAuthor = req.params.id;
+        idReceita = req.params.id;
         console.log("Executar açao de editar receita idRecipe=", req.params.id);
         let id = req.params.id;
 
