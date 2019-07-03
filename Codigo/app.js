@@ -7,7 +7,6 @@ const app = express();
 const port = 8000; //porta padrão
 // var session = require('express-session');
 var routes = require('./routes');
-// var user = require('./routes/user');
 var http = require('http');
 
 // conexão com o banco de dados

@@ -42,7 +42,7 @@ module.exports = {
             e depois retornar para a pagina
         */
         idAuthor = req.params.id;
-        console.log("Executar açao de editar cliente idAuthor=", req.params.id);
+        console.log("Executar açao de editar autor idAuthor=", req.params.id);
         let id = req.params.id;
 
         query = "SELECT * FROM Autor WHERE idAuthor='" + id + "'";
@@ -64,7 +64,7 @@ module.exports = {
         db.query(insert, [idAuthor], function (erro, result) {
 
         	if (erro) {
-                console.log("Não foi possivel atualizar o cliente.Erro:" + erro);
+                console.log("Não foi possivel atualizar o autor.Erro:" + erro);
                 res.render('autores.ejs', resultados);
             }
 
@@ -80,9 +80,9 @@ module.exports = {
         var sql = "DELETE FROM Autor  WHERE idAuthor = ?";
         db.query(sql, [id], function (erro, resultado) {
             if (erro) {
-                // dadosParaPagina.message_erro = "Não foi possivel remover o cliente.Erro:" + erro;
+                // dadosParaPagina.message_erro = "Não foi possivel remover o autor.Erro:" + erro;
             }
-            console.log("Apagando Cliente");
+            console.log("Apagando Autor");
         });
 
 

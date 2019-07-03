@@ -40,7 +40,7 @@ module.exports = {
             resultados.receitas = result;
             resultados.receita = null;
             console.log(result);
-            res.render('receitas.ejs', resultados);
+            res.render('receitas', resultados);
         });
     },
 
