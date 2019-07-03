@@ -7,7 +7,6 @@ const app = express();
 const port = 8000; //porta padrão
 // var session = require('express-session');
 var routes = require('./routes');
-// var user = require('./routes/user');
 var http = require('http');
 
 // conexão com o banco de dados
@@ -48,11 +47,11 @@ app.get('/author/editar/:id', detalharAutor);
 app.post('/author/editar', editAutor);
 
 app.post('/cadastroReceita', adicionarReceita);
-app.get('/receita', buscarReceita);
-app.get('/receita/:id', removerReceita);
-app.get('/receita/editar/:id', detalharReceita);
-app.get('/receita/ler/:id', lerReceita);
-app.post('/receita/editar', editReceita);
+app.get('/receitas', buscarReceita);
+app.get('/receitas/:id', removerReceita);
+app.get('/receitas/editar/:id', detalharReceita);
+app.get('/receitas/ler/:id', lerReceita);
+app.post('/receitas/editar', editReceita);
 
 app.get('/cadastroAutor', (req, res) => {
     res.render('cadastroAutor.ejs')
