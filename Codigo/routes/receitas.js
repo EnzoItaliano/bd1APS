@@ -8,16 +8,17 @@ var idReceita = '';
 module.exports = {
     adicionarReceitas: (req, res) => {
         message = '';
-        var nome = req.body.nome;
-        var idade = req.body.idade;
-        var habilidade = req.body.habilidade;
+        var titulo = req.body.titulo;
+        var autor = req.body.autor;
+        var ingredientes = req.body.ingredientes;
+        var modPrep = req.body.modPrep;
 
-        var sql = "INSERT INTO Autor(name_,age,hability) VALUES ('" + nome + "','" + idade + "','" + habilidade + "')";
+        var sql = "INSERT INTO Receita(title,ingedients,prepMode,author) VALUES ('" + titulo + "','" + ingredientes + "','" + modPrep + "','" + autor + "')";
 
         var query = db.query(sql, function (err, result) {
 
             message = "Succesfully! Recipe added.";
-            res.render('cadastroAutor.ejs', { message: message });
+            res.render('cadastroReceita.ejs', { message: message });
         });
     },
 
@@ -39,7 +40,7 @@ module.exports = {
         idAuthor = req.params.id;
         let id = req.params.id;
 
-        query = "SELECT * FROM Autor WHERE idRecipe='" + id + "'";
+        query = "SELECT * FROM Receita WHERE idRecipe='" + id + "'";
         db.query(query, function (erro, result) {
             resultados.receita = result[0];
             res.render('lerReceita.ejs', resultados);
@@ -64,22 +65,22 @@ module.exports = {
     },
 
     editReceita: (req, res) => {
-        var nome = req.body.nome;
-        var idade = req.body.idade;
-        var habilidade = req.body.habilidade;
-        idAuthor = idAuthor.replace(':', '');
+        var titulo = req.body.titulo;
+        var ingredientes = req.body.ingredientes;
+        var modPrep = req.body.modPrep;
+        idReceita = idReceita.replace(':', '');
 
 
-        var insert = "UPDATE Autor set name_='" + nome + "', age='" + idade + "', hability='" + habilidade + "' WHERE idAuthor= ?";
+        var insert = "UPDATE Receita set title='" + titulo + "', ingredients='" + ingredientes + "', prepMode='" + modPrep + "' WHERE idRecipe= ?";
         
-        db.query(insert, [idAuthor], function (erro, result) {
+        db.query(insert, [idReceita], function (erro, result) {
 
         	if (erro) {
-                console.log("Não foi possivel atualizar o cliente.Erro:" + erro);
-                res.render('autores.ejs', resultados);
+                console.log("Não foi possivel atualizar a Receita.Erro:" + erro);
+                res.render('receitas.ejs', resultados);
             }
 
-            res.redirect('/author/');
+            res.redirect('/receitas/');
             console.log(result);
         });
 
@@ -88,20 +89,20 @@ module.exports = {
 
     removerReceita: (req, res) => {
         var id = req.params.id;
-        var sql = "DELETE FROM Autor  WHERE idAuthor = ?";
+        var sql = "DELETE FROM Receita  WHERE idRecipe = ?";
         db.query(sql, [id], function (erro, resultado) {
             if (erro) {
-                // dadosParaPagina.message_erro = "Não foi possivel remover o cliente.Erro:" + erro;
+                
             }
-            console.log("Apagando Cliente");
+            console.log("Apagando Recipe");
         });
 
 
-        var sql = "SELECT * FROM Autor";
+        var sql = "SELECT * FROM Receita";
         db.query(sql, function (err, result) {
-            resultados.autores = result;
+            resultados.receitas = result;
             console.log(result);
-            res.render('autores', resultados);
+            res.render('receitas.ejs', resultados);
         });
     }
 }
