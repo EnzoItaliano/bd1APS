@@ -51,6 +51,7 @@ app.post('/cadastroReceita', adicionarReceita);
 app.get('/receitas', buscarReceita);
 app.get('/receitas/:id', removerReceita);
 app.get('/receitas/editar/:id', detalharReceita);
+app.get('/cadastroReceita', detalharAutores);
 app.get('/receitas/ler/:id', lerReceita);
 app.post('/receitas/editar', editReceita);
 
