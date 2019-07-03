@@ -14,4 +14,62 @@
             ">Pesquisar</button></a>
         </div>
     </form>
+    <div style="text-align: right; margin-left: 20px; margin-right: 22px; margin-top: -15px">
+        <a href="cadastroAutor"><button style="
+                background-color: #316d49;
+                border: none;
+                color: white;
+                padding: 5px 13px;
+                text-align: center;
+            ">Adicionar</button></a>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Autor</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if(receitas) {%>
+            <% autores.forEach(function(receita){ %>
+            <tr>
+                <td>
+                    <%= receita.idRecipe %>
+                </td>
+                <td>
+                    <%= receita.title %>
+                </td>
+                <td>
+                    <%= receita.author %>
+                </td>
+                <td>
+                    <button style="
+                        background-color: #316d49;
+                        border: none;
+                        padding: 5px 13px;
+                        text-align: center;"><a href="receitas/ler/:<%=receita.idRecipe%>" style="color: white">Ler</a></button>
+                </td>
+                <td>
+                    <button style="
+                        background-color: #316d49;
+                        border: none;
+                        padding: 5px 13px;
+                        text-align: center;"><a href="receitas/editar/:<%=receita.idRecipe%>" style="color: white">Editar</a></button>
+
+                    <button style="
+                        background-color: #316d49;
+                        border: none;
+                        padding: 5px 13px;
+                        text-align: center;"><a href="receitas/<%= receita.idRecipe%>" style="color: white">Remover</a></button>
+                </td>
+            </tr>
+            <% }); %>
+            <% } %>
+        </tbody>
+        </table>
 </div>
