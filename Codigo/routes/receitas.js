@@ -6,7 +6,7 @@ const resultados = {
 var idReceita = '';
 
 module.exports = {
-    adicionarReceitas: (req, res) => {
+    adicionarReceita: (req, res) => {
         message = '';
         var titulo = req.body.titulo;
         var autor = req.body.autor;
@@ -22,7 +22,7 @@ module.exports = {
         });
     },
 
-    buscarReceitas: (req, res) => {
+    buscarReceita: (req, res) => {
         
 
         var sql= "SELECT * FROM Receita";
@@ -35,7 +35,7 @@ module.exports = {
     },
 
 
-    lerReceitas: (req, res) => {
+    lerReceita: (req, res) => {
         
         idAuthor = req.params.id;
         let id = req.params.id;
@@ -47,7 +47,7 @@ module.exports = {
         });
     },
 
-    detalharReceitas: (req, res) => {
+    detalharReceita: (req, res) => {
         /*
             Para editar as informaçoes do Autor
             é necessario buscar primeiro as informaçoes no banco
