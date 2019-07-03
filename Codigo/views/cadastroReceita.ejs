@@ -1,26 +1,28 @@
 <%- include header %>
 
 <div>
-    &nbsp&nbsp<h1 style="color: #114d29">&nbspReceitas</h1>
-    <form action="" method="POST" style="margin-top: 30px; margin-left: 20px; margin-right: 20px">
-        <div style="text-align: right;">
-            <input style="border-radius: 5px; width: 100%" type="text" name="searchRecipe">
-            <a href="buscarReceita"><button style="
-                background-color: #316d49;
-                border: none;
-                color: white;
-                padding: 5px 13px;
-                text-align: center;
-            ">Pesquisar</button></a>
+    <form>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Título</label>
+          <input class="form-control" type="text" name="title">
         </div>
-    </form>
-    <div style="text-align: right; margin-left: 20px; margin-right: 22px; margin-top: -15px">
-        <a href="cadastroAutor"><button style="
-                background-color: #316d49;
-                border: none;
-                color: white;
-                padding: 5px 13px;
-                text-align: center;
-            ">Adicionar</button></a>
-    </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Ingredientes</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Modo de preparo</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect2">Example multiple select</label>
+            <select multiple class="form-control" id="exampleFormControlSelect2">
+            <%if(autores){
+                autores.forEach(function(autor){%>
+                <option><%=autor.idAuthor%></option>
+                <%});%>
+            <%}%>
+            </select>
+          </div>        
+      </form>
 </div>
