@@ -14,12 +14,12 @@ module.exports = {
         var ingredientes = req.body.ingredientes;
         var modPrep = req.body.modPrep;
 
-        var sql = "INSERT INTO Receita(title,ingedients,prepMode,author) VALUES ('" + titulo + "','" + ingredientes + "','" + modPrep + "','" + autor + "')";
+        var sql = "INSERT INTO Receita(title,ingredients,prepMode,author) VALUES ('" + titulo + "','" + ingredientes + "','" + modPrep + "','" + autor + "')";
 
         var query = db.query(sql, function (err, result) {
 
             message = "Succesfully! Recipe added.";
-            res.render('detalharAutores.ejs', { message: message });
+            res.render('cadastroReceita.ejs', resultados);
         });
     },
 
@@ -28,7 +28,7 @@ module.exports = {
         query = "SELECT * FROM Autor";
         db.query(query, function (erro, result) {
             resultados.autores = result;
-            res.render('adicionarReceita.ejs', resultados);
+            res.render('cadastroReceita.ejs', resultados);
         });
     },
 

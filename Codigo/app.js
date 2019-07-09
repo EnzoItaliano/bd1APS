@@ -27,7 +27,7 @@ global.db = db;
 
 
 const { adicionarAutor, buscarAutor, removerAutor, detalharAutor, editAutor } = require('./routes/author');
-const { adicionarReceita, buscarReceita, removerReceita, detalharReceita, editReceita, lerReceita } = require('./routes/receitas');
+const { adicionarReceita, buscarReceita, removerReceita, detalharReceita, editReceita, lerReceita, detalharAutores } = require('./routes/receitas');
 // const { buscarAutor } = require('./routes/author');
 
 
@@ -58,9 +58,9 @@ app.get('/cadastroAutor', (req, res) => {
     res.render('cadastroAutor.ejs')
 })
 
-app.get('/cadastroReceita', (req, res) => {
-    res.render('cadastroReceita.ejs')
-})
+// app.get('/cadastroReceita', (req, res) => {
+//     res.render('cadastroReceita.ejs')
+// })
 
 app.get('/index', (req, res) => {
     res.render('index.ejs')
