@@ -27,18 +27,4 @@ create table Receita (
     primary key (idRecipe, author),
     foreign key (author) references Autor(idAuthor) ON DELETE CASCADE
 );
-
-create table Restaurante(
-	idRestaurant int(5) not null AUTO_INCREMENT,
-    name_ char(100),
-    adress char(100),
-    primary key (idRestaurant)
-);
-
-create table Trabalhos (
-	idAuthor int(5),
-    idRestaurant int(5),
-    primary key (idAuthor, idRestaurant),
-    foreign key (idAuthor) references Autor(idAuthor),
-    foreign key (idRestaurant) references Restaurante(idRestaurant));
     
