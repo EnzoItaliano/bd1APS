@@ -50,26 +50,24 @@ module.exports = {
         idReceita = req.params.id;
         let id = req.params.id;
 
+        id = idReceita.replace(':', '');
+
         query = "SELECT * FROM Receita WHERE idRecipe='" + id + "'";
         db.query(query, function (erro, result) {
             resultados.receita = result[0];
+            console.log(resultados.receita);
             res.render('lerReceita.ejs', resultados);
         });
     },
 
     detalharReceita: (req, res) => {
-        /*
-            Para editar as informaçoes do Autor
-            é necessario buscar primeiro as informaçoes no banco
-            e depois retornar para a pagina
-        */
         idReceita = req.params.id;
         console.log("Executar açao de editar receita idRecipe=", req.params.id);
         let id = req.params.id;
 
         query = "SELECT * FROM Receita WHERE idRecipe='" + id + "'";
         db.query(query, function (erro, result) {
-            resultados.autor = result[0];
+            resultados.receita = result[0];
             res.render('editReceita.ejs', resultados);
         });
     },
