@@ -11,5 +11,7 @@ Para executar o site utilize o comando abaixo dentro da pasta *Codigo*
 ```
 node index.js
 ```
-### Tutoriais utilizados
+### Referências
 - https://www.js-tutorials.com/nodejs-tutorial/node-js-user-authentication-using-mysql-express-js/ : 22/06/2019
+- https://expressjs.com/pt-br/guide/using-middleware.html
+- https://www.w3schools.com/
