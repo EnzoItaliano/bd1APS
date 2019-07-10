@@ -42,12 +42,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', routes.index);//call for main index page
 app.post('/cadastroAutor', adicionarAutor);
 app.get('/author', buscarAutor);
+app.post('/autores', buscarAutor);
 app.get('/author/:id', removerAutor);
 app.get('/author/editar/:id', detalharAutor);
 app.post('/author/editar', editAutor);
 
 app.post('/cadastroReceita', adicionarReceita);
 app.get('/receitas', buscarReceita);
+app.post('/receitas', buscarReceita);
 app.get('/receitas/:id', removerReceita);
 app.get('/receitas/editar/:id', detalharReceita);
 app.get('/cadastroReceita', detalharAutores);

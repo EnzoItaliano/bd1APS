@@ -25,7 +25,7 @@ create table Receita (
     prepMode varchar(5000),
     author int(5),
     primary key (idRecipe, author),
-    foreign key (author) references Autor(idAuthor)
+    foreign key (author) references Autor(idAuthor) ON DELETE CASCADE
 );
 
 create table Restaurante(

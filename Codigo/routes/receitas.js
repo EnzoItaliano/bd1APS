@@ -33,9 +33,8 @@ module.exports = {
     },
 
     buscarReceita: (req, res) => {
-        
 
-        var sql= "SELECT * FROM Receita";
+        var sql= `SELECT * FROM Receita`;
         db.query(sql, function(err, result) {
             resultados.receitas = result;
             resultados.receita = null;
@@ -110,7 +109,7 @@ module.exports = {
         db.query(sql, function (err, result) {
             resultados.receitas = result;
             console.log(result);
-            res.render('receitas.ejs', resultados);
+            res.redirect('/receitas');
         });
     }
 }

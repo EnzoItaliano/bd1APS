@@ -24,11 +24,11 @@ module.exports = {
     buscarAutor: (req, res) => {
         var nome = req.body.searchAuthor;
 
-        var sql= "SELECT * FROM Autor";
+        var sql= `SELECT * FROM Autor WHERE name_ LIKE "%${nome}%"`;
         db.query(sql, function(err, result) {
             resultados.autores = result;
             resultados.autor = null;
-            console.log(result);
+            console.log(result, sql);
             res.render('autores', resultados);
         });
     },
@@ -90,7 +90,7 @@ module.exports = {
         db.query(sql, function (err, result) {
             resultados.autores = result;
             console.log(result);
-            res.render('autores', resultados);
+            res.redirect('/author');
         });
     }
 }
