@@ -1,0 +1,20 @@
+<%- include header %>
+
+<div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Título</label>
+          <input class="form-control" type="text" name="titulo" placeholder="<%= receita.title %>" readonly>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Ingredientes</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ingredientes" placeholder="<%= receita.ingredients %>" readonly></textarea>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Modo de preparo</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="modPrep" placeholder="<%= receita.prepMode %>" readonly></textarea>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect2">Autor</label>
+            <input class="form-control" type="text" name="autor" placeholder="<%= receita.author %>" readonly>
+          </div>
+</div>
